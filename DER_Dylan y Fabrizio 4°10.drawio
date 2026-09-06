@@ -1,0 +1,61 @@
+<mxfile host="Electron" agent="ChatGPT">
+  <diagram id="der1" name="DER - Ejercicio">
+    <mxGraphModel dx="1094" dy="709" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cliente" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;spacing=8;" value="CLIENTE&#xa;&#xa;PK idCliente&#xa;nombre&#xa;direccion&#xa;telefono" vertex="1">
+          <mxGeometry height="150" width="190" x="30" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="email" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;spacing=8;" value="EMAIL&#xa;&#xa;PK idEmail&#xa;direccion&#xa;FK idCliente" vertex="1">
+          <mxGeometry height="130" width="190" x="30" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="pedido" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;spacing=8;" value="PEDIDO&#xa;&#xa;PK idPedido&#xa;fecha&#xa;estado&#xa;FK idCliente&#xa;FK idEmpleado" vertex="1">
+          <mxGeometry height="170" width="210" x="400" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="empleado" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=light-dark(#6C8EBF,#80FF00);fontStyle=1;spacing=8;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;align=center;" value="EMPLEADO&lt;br&gt;&lt;br&gt;PK idEmpleado&lt;br&gt;nombre&lt;br&gt;legajo&lt;br&gt;telefono&lt;br&gt;encargo_pedido" vertex="1">
+          <mxGeometry height="120" width="210" x="410" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="producto" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;spacing=8;" value="PRODUCTO&#xa;&#xa;PK idProducto&#xa;codigo&#xa;nombre&#xa;precio&#xa;stock" vertex="1">
+          <mxGeometry height="150" width="210" x="860" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="pp" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;spacing=8;shadow=1;" value="&lt;span style=&quot;background-color: transparent;&quot;&gt;PEDIDO_&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;PRODUCTO&lt;/span&gt;&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;FK idPedido&lt;/div&gt;&lt;div&gt;&amp;nbsp;FK&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;idProducto&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp;cantidad&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="130" width="210" x="840" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="cliente" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=none;strokeWidth=2;" target="pedido" value="1 : N&#xa;realiza">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="cliente" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=none;strokeWidth=2;" target="email" value="1 : N&#xa;tiene">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="empleado" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=none;strokeWidth=2;" target="pedido" value="1 : N&#xa;atiende">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=22;fontStyle=1;fontColor=#1a2b4c;" value="DIAGRAMA ENTIDAD-RELACIÓN / MODELO LÓGICO" vertex="1">
+          <mxGeometry height="40" width="500" x="300" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="wFOpnIYIRInS4p_l6Agf-5" edge="1" parent="1" source="pedido" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="producto" value="1 : N&lt;br&gt;contiene">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="740" y="260" as="sourcePoint" />
+            <mxPoint x="820" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wFOpnIYIRInS4p_l6Agf-6" edge="1" parent="1" source="pp" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" value="N : M">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="750" y="400" as="sourcePoint" />
+            <mxPoint x="770" y="195" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wFOpnIYIRInS4p_l6Agf-7" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="CANTIDAD" vertex="1">
+          <mxGeometry height="60" width="90" x="650" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="wFOpnIYIRInS4p_l6Agf-8" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="PRECIO" vertex="1">
+          <mxGeometry height="50" width="90" x="265" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="wFOpnIYIRInS4p_l6Agf-9" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="ORGANIZACION" vertex="1">
+          <mxGeometry height="50" width="100" x="535" y="367" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
