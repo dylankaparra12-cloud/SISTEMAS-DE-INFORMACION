@@ -1,0 +1,44 @@
+1.Entidades:
+Cliente, Producto, Pedido, Empleado
+
+2 Atributos:
+Clientes: nombre (simple), dirección(compuesto: calle, país), teléfono(simple) y email(multivaluados)
+Pedidos: Fecha(simple), Estado(multivaluado), cliente asociado(simple). 
+Productos: Código(multivaluado), nombre(simple), precio(multivaluado) y stock(simple) 
+Empleados: nombre (simple), teléfono (simple), encargo del pedido (multivaluados)
+
+3.Tablas:
+Cliente: PK=Id_cliente, Candidatas(nombre, teléfono, email, dirreción)
+Producto: PK=Id_producto, candidatas(nombre, precio, stock, código)
+Pedido: PK=Id_pedido, Candidatas(fecha, estado, cliente asociado)
+Empleado: PK=Id_empelado, Candidatas(nombre, teléfono, , encargo de pedido)
+
+4.Relaciones:
+Cliente -> Pedido: cliente realiza pedido
+ Pedido -> Producto: pedido contiene producto 
+Empleado -> Pedido: empleado atiende pedido
+
+5.Cardinalidad:
+Cliente – Pedido= 1:N(un cliente puede hacer muchos pedidos)
+Empleado – Pedido= 1:N(un empleado atiende varios pedidos)
+Pedido – Producto = 1:N(Un pedido contiene muchos productos)
+Pedido – Empleado = 1:1(un pedido es atendido por un solo empleado
+
+6.Atributos de las relaciones:
+Pedido-Producto: cantidad (cantidad de unidades del producto en ese pedido)
+Cliente-Pedido: precio(el precio del pedido que compra el cliente)
+Empleado-Pedido: Organización(la organización que realiza el empleado del pedido encargado)
+
+7.Atributos multivaluados:
+Email de Cliente es multivaluado. Crearé una tabla Email con campos: idEmail, direccion, idCliente (FK)
+Código de Producto es multivaluado. La tabla sería: Id_Código, código de barras, Id_Producto(FK)
+Precio de Producto también es multivaluado. La tabla sería: Id_Precio, descuento, Id_Producto(FK)
+Estado de Pedido es multivaluado. La tabla sería: Id_Estado, etapa, Id_Pedido(FK)
+Encargo del producto de Empleado es multivaluado. La tabla sería: Id_Encargo, cantidad, Id_Empleado(FK), Id_Producto(FK)
+
+8.No sabemos
+
+9.No sabemos
+
+10.Listado de tablas:
+Empleado, Cliente,  Email, Pedido, Producto, Pedido_Producto
