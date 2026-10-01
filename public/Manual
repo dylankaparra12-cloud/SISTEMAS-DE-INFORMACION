@@ -1,0 +1,33 @@
+### 1. Estructura del proyecto
+Primero creamos una carpeta del proyecto con dos partes:
+1. La primera parte es el Frontend (en /public): index.html (interfaz) y js.js (lógica del navegador).
+2. La segunda parte es el Backend (en la raíz): server.js (servidor) y package.json (configuración).
+
+### 2. Instalación de paquetes
+Una vez ya creamos la carpeta, iniciamos el proyecto de Node en la terminal (npm init -y). Despues instalamos las herramientas clave (npm install express better-sqlite3):
+- Express sirve para manejar las rutas web y la comunicación.
+- Better-SQLite3 es para gestionar la base de datos.
+
+### 3. Diseño del formulario y lista (HTML)
+Despues creamos los campos de ingreso (Nombre, Apellido, Teléfono, Curso y División) con sus respectivos id.
+Armaremos una lista con un <ul id="lista"></ul> vacío para insertar los datos más tarde con JS.
+
+### 4. Creación del servidor y base de datos (Node.js)
+En server.js, conectamos SQLite para que cree el archivo alumnos.db de forma automática. Ahi definimos la estructura SQL de la tabla alumnos.
+
+Creamos dos rutas (endpoints):
+
+- POST /guardar: Recibe los datos tipeados y ejecuta un INSERT en SQLite.
+
+- GET /obtener: Consulta todos los registros con un SELECT y los devuelve al navegador.
+
+### 5. Conexión del cliente (JavaScript)
+Programamos el evento del botón para capturar los valores sin recargar la página. 
+Usamos fetch para enviar los datos nuevos al servidor (POST).
+Creamos una función que pide los registros al servidor (GET) y genera dinámicamente los elementos de lista (<li>) dentro del <ul>.
+
+### 6. Puesta en marcha y pruebas
+Ejecutamos el servidor con node server.js.
+Despues escribimos "http://localhost:3000" en el navegador.
+Para evitar errores. HTML, JS, y SQLite tendran diferentes nombres para no repetirse y generar errores 404
+Reiniciamos el servidor con la base limpia para confirmar que cada alumno ingresado se guarde y muestre de inmediato en la lista.
